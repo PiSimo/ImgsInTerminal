@@ -6,6 +6,7 @@ using namespace std;
 using namespace cv;
 using namespace cv::ml;
 
+//Defining main colors code :
 /** Black Blue Green Red White Grey Yellow Grey_2 **/
 string colors[] = {"30","31","32","34","47","33","37"};
 
@@ -23,6 +24,8 @@ int main(int argc,char* argv[]){
 
   int w = m.size().width;
   int h = m.size().height;
+  
+  //Resizing image :
   if(w > 130 && h > 130){
     if(w > h){
       h = (h*130)/w;
@@ -38,6 +41,7 @@ int main(int argc,char* argv[]){
   //w = 90;
   resize(m,m,Size(w,h));
 
+  //Defining main colors in the KNN classifier
   sample.at<float>(0,0) =0,sample.at<float>(0,1) =0,sample.at<float>(0,2) =0; //#000
   sample.at<float>(1,0) =0,sample.at<float>(1,1) =0,sample.at<float>(1,2) =255; //00f
   sample.at<float>(2,0) =0,sample.at<float>(2,1) =255,sample.at<float>(2,2) =0; //0f0
@@ -56,6 +60,7 @@ int main(int argc,char* argv[]){
   knn->train(sample, ml::ROW_SAMPLE,labels);
   if(!knn->isTrained()){cout<<"Error !\n";return -1;}
 
+  //We classify every pixel value with KNN to get the main Color and then we output the colored '#' in the term
   for(int i= 0;i != h;i++){
     for(int k = 0;k != w;k++){
       Mat px(1,3,CV_32F);
