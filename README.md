@@ -7,7 +7,7 @@ Requirements :<br />
       -G++ compiler<br />
       -pkg-config<br />
  To Compile it :<br />
-  <code>g++ textr.cc `pkg-config --cflags --libs opencv` -o textr</code><br />
+  <code>g++ textr.cc &#96;pkg-config --cflags --libs opencv&#96; -o textr</code><br />
  To run :<br />
   <code>./textr image-name.png</code><br />
   (NOTE:Use small images else you need to resize the font size of your terminal)
