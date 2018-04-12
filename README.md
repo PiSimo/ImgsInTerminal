@@ -1,7 +1,7 @@
 # ImgsInTerminal
 
 Display images in terminal with colored characters<br />
-<h3>Requirements :</h3><br />
+<h3>Requirements :</h3>
       <br />-Linux for the colored characters
       <br />-<a href="http://opencv.org/">OpenCV</a>
       <br />-G++ compiler
